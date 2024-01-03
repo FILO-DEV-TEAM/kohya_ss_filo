@@ -15,6 +15,10 @@ from library.localization_ext import add_javascript
 # Set up logging
 log = setup_logging()
 
+# For now disable Torch2 Dynamo, its screwing up diffusers
+if os.name == "posix":
+    os.environ["TORCHDYNAMO_DISABLE"] = "1"
+
 
 def UI(**kwargs):
     add_javascript(kwargs.get('language'))

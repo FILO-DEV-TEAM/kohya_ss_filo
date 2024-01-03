@@ -10,6 +10,11 @@ env_var_exists() {
   fi
 }
 
+# For now disable Torch2 Dynamo, its screwing up diffusers
+if [[ os.name == "posix": ]]; then
+    os.environ["TORCHDYNAMO_DISABLE"] = 1
+fi
+
 # Need RUNPOD to have a default value before first access
 RUNPOD=false
 if env_var_exists RUNPOD_POD_ID || env_var_exists RUNPOD_API_KEY; then

@@ -45,3 +45,7 @@ requirements_tmp_for_setup.txt
 
 *.npz
 presets/*/user_presets/*
+
+# TEAM FILO FIX
+dataset/
+models/
